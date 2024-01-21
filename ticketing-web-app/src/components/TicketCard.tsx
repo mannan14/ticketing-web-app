@@ -5,7 +5,7 @@ type TicketCardProps = {
         dateCreated: Date,
         severity: string,
         type: string,
-        assignedTo: string, // Support Agent ID
+        assignedTo: any, // Support Agent ID
         status: "New"|"Assigned"|"Resolved",
         resolvedOn: Date|string
     };
@@ -29,7 +29,7 @@ const TicketCard = ({
     }
 
     return (
-        <div className='flex border-2 h-1/3 w-full border-black bg-neutral-700 hover:bg-neutral-600 rounded-xl p-2 text-white'> 
+        <div className='flex border-2 h-1/3 w-full border-black bg-neutral-700 hover:bg-neutral-700/95 rounded-xl p-2 text-white'> 
             <div className="flex flex-col justify-around w-1/2">
                 <h2>
                     Topic:
@@ -55,7 +55,7 @@ const TicketCard = ({
                 </p>
                 <p>
                     Assigned To:
-                    <span className='mx-2'>{ticket.assignedTo}</span>
+                    <span className='mx-2'>{ticket.assignedTo.name}</span>
                 </p>
                 <p>
                     Status:
@@ -72,8 +72,8 @@ const TicketCard = ({
                     </p>
                     ):
                     (
-                    // <button>Resolved</button>
-                    null
+                    // <button className="p-1.5 w-1/2 text-black rounded-lg bg-white border-2 ">Resolved</button>
+                        null
                     )
                 }
             </div>
