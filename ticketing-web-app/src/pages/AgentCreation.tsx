@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const AgentCreation = () => {
     const navigate = useNavigate();
@@ -42,7 +42,7 @@ const AgentCreation = () => {
                 "content-type": "application/json"
             },
             method:'POST',
-            url:`${import.meta.env.VITE_SERVER_URI}/support-agents`,
+            url:`${import.meta.env.VITE_SERVER_URL}/support-agents`,
             // url:`https://localhost:3000/api/support-agents`,
             data: JSON.stringify(newAgent),
         }).then((res)=>{
@@ -64,7 +64,7 @@ const AgentCreation = () => {
 
     return (
         <div className='h-screen pt-20'>
-            <form className='flex flex-col text-black max-w-xl p-6 mx-auto space-y-4 rounded-lg      shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]'>
+            <form onClick={(e) => OnSubmit(e)} className='flex flex-col text-black max-w-xl p-6 mx-auto space-y-4 rounded-lg      shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]'>
                 <h1 className='text-black text-center text-2xl'>Create agent</h1>
                 <input 
                     type="text" 
@@ -110,9 +110,9 @@ const AgentCreation = () => {
                     onChange={(e)=>onInputChange(e)}
                 />
                 {/* <div className="flex justify-around"> */}
-                    <button onClick={() => OnSubmit} className='m-auto text-black p-2 border-2 border-black w-40 rounded-lg hover:bg-slate-900 hover:text-white ease-in-out duration-200'>Create Agent</button>
+                    <button type="submit" className='m-auto text-black p-2 border-2 border-black w-40 rounded-lg hover:bg-slate-900 hover:text-white ease-in-out duration-200'>Create Agent</button>
                     <hr/>
-                    <button onClick={()=>navigate('/create-ticket',{replace:true})} className='m-auto text-black p-2 border-2 border-slate-300 w-40 rounded-lg hover:border-black ease-in-out duration-200'>Create a new Ticket</button>
+                    <Link to={'/create-ticket'} className='m-auto text-black p-2 border-2 border-slate-300 w-40 rounded-lg hover:border-black ease-in-out duration-200'>Create a new Ticket</Link>
                 {/* </div> */}
             </form>
         </div>

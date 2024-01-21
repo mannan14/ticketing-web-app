@@ -83,98 +83,98 @@ const Modal = ({
 
     return (
         <>
-        <Transition appear show={open} as={Fragment}>
-            <Dialog as="div" className="relative z-10" onClose={closeModal}>
-            <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0"
-                enterTo="opacity-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
-            >
-                <div className="fixed inset-0 bg-black/25" />
-            </Transition.Child>
+            <Transition appear show={open} as={Fragment}>
+                <Dialog as="div" className="relative z-10" onClose={closeModal}>
+                <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                >
+                    <div className="fixed inset-0 bg-black/25" />
+                </Transition.Child>
 
-            <div className="fixed inset-0 overflow-y-auto">
-                <div className="flex min-h-full items-center justify-center p-4 text-center">
-                    <Transition.Child
-                        as={Fragment}
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0 scale-95"
-                        enterTo="opacity-100 scale-100"
-                        leave="ease-in duration-200"
-                        leaveFrom="opacity-100 scale-100"
-                        leaveTo="opacity-0 scale-95"
-                    >
-                        <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                            <Dialog.Title
-                                as="h3"
-                                className="text-lg font-medium leading-6 text-gray-900"
-                            >
-                                Create New Ticket
-                            </Dialog.Title>
-                            <form action="" onSubmit={CreateTicket} className='flex flex-col space-y-4 mt-2 w-full'>
-                                <input 
-                                    type="text" 
-                                    required={true}
-                                    className="p-1.5 rounded-md border-2 placeholder:text-black" 
-                                    placeholder='Topic' 
-                                    name='topic' 
-                                    id="topic" 
-                                    value={ticket.topic} 
-                                    onChange={(e)=>onInputChange(e)}
-                                />
-                                <select 
-                                    required={true}
-                                    className='p-1.5 rounded-md border-2 placeholder:text-black' 
-                                    name="severity" 
-                                    id="severity" 
-                                    onChange={(e)=>onInputChange(e)}
+                <div className="fixed inset-0 overflow-y-auto">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center">
+                        <Transition.Child
+                            as={Fragment}
+                            enter="ease-out duration-300"
+                            enterFrom="opacity-0 scale-95"
+                            enterTo="opacity-100 scale-100"
+                            leave="ease-in duration-200"
+                            leaveFrom="opacity-100 scale-100"
+                            leaveTo="opacity-0 scale-95"
+                        >
+                            <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                                <Dialog.Title
+                                    as="h3"
+                                    className="text-lg font-medium leading-6 text-gray-900"
                                 >
-                                    <option value="Low">Low</option>
-                                    <option value="Medium">Medium</option>
-                                    <option value="High">High</option>
-                                </select>
-                                <input 
-                                    type="text" 
-                                    required={true}
-                                    className="p-1.5 rounded-md border-2 placeholder:text-black" 
-                                    placeholder='Type' 
-                                    name='type' 
-                                    id="type" 
-                                    value={ticket.type} 
-                                    onChange={(e)=>onInputChange(e)}
-                                />
-                                <textarea
-                                    name="description" 
-                                    id="description" 
-                                    required={true}
-                                    className='p-1.5 rounded-md border-2 placeholder:text-black'
-                                    placeholder='Description'
-                                    cols={30} 
-                                    rows={10} 
-                                    value={ticket.description}
-                                    onChange={(e)=>onInputChange(e)}
-                                />
-
-                                <div className="mt-4">
-                                    <button
-                                    type="submit"
-                                    className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                                    // onClick={CreateTicket}
+                                    Create New Ticket
+                                </Dialog.Title>
+                                <form action="" onSubmit={CreateTicket} className='flex flex-col space-y-4 mt-2 w-full'>
+                                    <input 
+                                        type="text" 
+                                        required={true}
+                                        className="p-1.5 rounded-md border-2 placeholder:text-black" 
+                                        placeholder='Topic' 
+                                        name='topic' 
+                                        id="topic" 
+                                        value={ticket.topic} 
+                                        onChange={(e)=>onInputChange(e)}
+                                    />
+                                    <select 
+                                        required={true}
+                                        className='p-1.5 rounded-md border-2 placeholder:text-black' 
+                                        name="severity" 
+                                        id="severity" 
+                                        onChange={(e)=>onInputChange(e)}
                                     >
-                                    Create Ticket
-                                    </button>
-                                </div>
-                            </form>
-                        </Dialog.Panel>
-                    </Transition.Child>
+                                        <option value="Low">Low</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="High">High</option>
+                                    </select>
+                                    <input 
+                                        type="text" 
+                                        required={true}
+                                        className="p-1.5 rounded-md border-2 placeholder:text-black" 
+                                        placeholder='Type' 
+                                        name='type' 
+                                        id="type" 
+                                        value={ticket.type} 
+                                        onChange={(e)=>onInputChange(e)}
+                                    />
+                                    <textarea
+                                        name="description" 
+                                        id="description" 
+                                        required={true}
+                                        className='p-1.5 rounded-md border-2 placeholder:text-black'
+                                        placeholder='Description'
+                                        cols={30} 
+                                        rows={10} 
+                                        value={ticket.description}
+                                        onChange={(e)=>onInputChange(e)}
+                                    />
+
+                                    <div className="mt-4">
+                                        <button
+                                        type="submit"
+                                        className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                                        // onClick={CreateTicket}
+                                        >
+                                        Create Ticket
+                                        </button>
+                                    </div>
+                                </form>
+                            </Dialog.Panel>
+                        </Transition.Child>
+                    </div>
                 </div>
-            </div>
-            </Dialog>
-        </Transition>
+                </Dialog>
+            </Transition>
         </>
     )
 }
